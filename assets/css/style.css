@@ -1,0 +1,40 @@
+/*
+ * ALIFY - Main stylesheet
+ * Self-hosted Geist fonts live in assets/font/.
+ */
+
+@font-face {
+  font-family: "Geist";
+  src: url("../font/geist-sans/Geist-Variable.woff2") format("woff2"),
+       url("../font/geist-sans/Geist-Variable.woff") format("woff");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Geist Mono";
+  src: url("../font/geist-mono/GeistMono-Variable.woff2") format("woff2"),
+       url("../font/geist-mono/GeistMono-Variable.woff") format("woff");
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+}
+
+:root {
+  --font-primary: "Geist", Arial, sans-serif;
+  --font-mono: "Geist Mono", monospace;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+}
