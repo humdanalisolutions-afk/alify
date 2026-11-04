@@ -1,0 +1,37 @@
+name: Validate ALIFY Frontend
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "index.html"
+      - "pages/**"
+      - "components/**"
+      - "assets/css/**"
+      - "assets/js/**"
+      - "assets/images/**"
+      - "scripts/validate-frontend.py"
+      - ".github/workflows/validate-frontend.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-frontend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate JavaScript modules
+        run: |
+          for f in assets/js/main.js assets/js/components/*.js; do
+            echo "Checking $f"
+            node --input-type=module --check < "$f"
+          done
+      - name: Validate HTML paths, images, fonts, and Bootstrap class rules
+        run: python3 scripts/validate-frontend.py
