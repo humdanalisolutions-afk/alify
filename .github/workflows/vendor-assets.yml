@@ -1,0 +1,65 @@
+name: Vendor Bootstrap, Font Awesome, GSAP and Geist
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/vendor-assets.yml"
+      - "scripts/vendor-assets.sh"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  vendor-assets:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out ALIFY
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Download complete vendor distributions
+        run: bash scripts/vendor-assets.sh
+
+      - name: Check all requested files
+        run: |
+          test -s assets/css/style.css
+          test -s assets/js/main.js
+          test -s assets/bootstrap/dist/css/bootstrap.min.css
+          test -s assets/bootstrap/dist/js/bootstrap.bundle.min.js
+          test -s assets/icons/css/all.min.css
+          test -s assets/icons/webfonts/fa-solid-900.woff2
+          test -s assets/gsap/dist/gsap.min.js
+          test -s assets/gsap/dist/ScrollTrigger.min.js
+          test -s assets/font/geist-sans/Geist-Variable.woff2
+          test -s assets/font/geist-sans/Geist-Variable.woff
+          test -s assets/font/geist-mono/GeistMono-Variable.woff2
+          test -s assets/font/geist-mono/GeistMono-Variable.woff
+          echo "Verified assets:"
+          find assets -type f | wc -l
+
+      - name: Commit official files to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add assets/bootstrap assets/icons assets/gsap assets/font
+          if ! git diff --cached --quiet; then
+            git commit -m "Add full self-hosted Bootstrap, Font Awesome, GSAP and Geist assets"
+            git push origin HEAD:main
+          else
+            echo "No asset changes to commit"
+          fi
