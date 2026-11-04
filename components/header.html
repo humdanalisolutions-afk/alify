@@ -1,0 +1,83 @@
+<header class="site-header" data-site-header>
+  <div class="container">
+    <div class="row"><div class="col">
+      <div class="site-header__bar">
+        <a class="site-header__brand" href="{{root}}index.html" aria-label="ALIFY — Home">
+          <img src="{{root}}assets/images/alify-logo-dark.svg" width="149" height="40" alt="ALIFY" />
+        </a>
+        <nav class="site-header__nav" aria-label="Primary navigation">
+          <a class="site-header__link" data-nav-route="home" href="{{root}}index.html">Home</a>
+          <a class="site-header__link" data-nav-route="about" href="{{root}}pages/about.html">About</a>
+          <div class="nav-dropdown" data-desktop-dropdown>
+            <button class="site-header__link site-header__link--button" type="button" data-desktop-dropdown-toggle aria-expanded="false" aria-controls="services-dropdown">
+              Services <span class="chevron chevron--down" aria-hidden="true"></span>
+            </button>
+            <div class="nav-dropdown__panel" id="services-dropdown" data-desktop-dropdown-panel hidden>
+              <div class="nav-dropdown__intro">
+                <span class="overline">WHAT WE DO</span>
+                <p>Practical digital expertise. Built around your goals.</p>
+                <a href="{{root}}pages/services.html">All services <span aria-hidden="true">↗</span></a>
+              </div>
+              <div class="nav-dropdown__links">
+                <a href="{{root}}pages/services.html#web-development">Web Development</a>
+                <a href="{{root}}pages/services.html#wordpress">WordPress Development</a>
+                <a href="{{root}}pages/services.html#shopify">Shopify Development</a>
+                <a href="{{root}}pages/services.html#seo">SEO &amp; Content</a>
+                <a href="{{root}}pages/services.html#design">UI/UX &amp; Branding</a>
+                <a href="{{root}}pages/services.html#automation">AI Automation</a>
+              </div>
+            </div>
+          </div>
+          <a class="site-header__link" data-nav-route="work" href="{{root}}pages/work.html">Work</a>
+          <a class="site-header__link" data-nav-route="pricing" href="{{root}}pages/pricing.html">Pricing</a>
+          <a class="site-header__link" data-nav-route="blog" href="{{root}}pages/blog.html">Blog</a>
+          <a class="site-header__link" data-nav-route="contact" href="{{root}}pages/contact.html">Contact</a>
+        </nav>
+        <div class="site-header__actions">
+          <a class="site-header__call" href="{{root}}pages/book-a-call.html">
+            <i class="fa-regular fa-calendar" aria-hidden="true"></i><span>Book a Call</span>
+          </a>
+          <a class="button button--primary site-header__cta" href="{{root}}pages/start-a-project.html">
+            Start a Project <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="mobile-navigation" aria-expanded="false" data-menu-open>
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div></div>
+  </div>
+</header>
+<div class="mobile-menu-backdrop" data-menu-backdrop hidden></div>
+<aside class="mobile-menu" id="mobile-navigation" aria-label="Mobile navigation" aria-modal="true" role="dialog" aria-hidden="true" inert data-mobile-menu>
+  <div class="mobile-menu__top">
+    <a href="{{root}}index.html" aria-label="ALIFY — Home"><img src="{{root}}assets/images/alify-logo-dark.svg" width="132" height="36" alt="ALIFY" /></a>
+    <button class="mobile-menu__close" type="button" data-menu-close aria-label="Close navigation menu"><span aria-hidden="true">×</span></button>
+  </div>
+  <nav class="mobile-menu__nav" aria-label="Mobile primary navigation">
+    <a data-nav-route="home" href="{{root}}index.html">Home</a>
+    <a data-nav-route="about" href="{{root}}pages/about.html">About</a>
+    <div class="mobile-menu__accordion" data-mobile-accordion>
+      <button type="button" aria-controls="mobile-service-links" aria-expanded="false" data-mobile-accordion-toggle>
+        Services <span class="chevron chevron--down" aria-hidden="true"></span>
+      </button>
+      <div class="mobile-menu__subnav" id="mobile-service-links" hidden>
+        <a href="{{root}}pages/services.html">All Services</a>
+        <a href="{{root}}pages/services.html#web-development">Web Development</a>
+        <a href="{{root}}pages/services.html#wordpress">WordPress</a>
+        <a href="{{root}}pages/services.html#shopify">Shopify</a>
+        <a href="{{root}}pages/services.html#seo">SEO &amp; Content</a>
+        <a href="{{root}}pages/services.html#design">UI/UX &amp; Branding</a>
+        <a href="{{root}}pages/services.html#automation">AI Automation</a>
+      </div>
+    </div>
+    <a data-nav-route="work" href="{{root}}pages/work.html">Work</a>
+    <a data-nav-route="pricing" href="{{root}}pages/pricing.html">Pricing</a>
+    <a data-nav-route="blog" href="{{root}}pages/blog.html">Blog</a>
+    <a data-nav-route="contact" href="{{root}}pages/contact.html">Contact</a>
+  </nav>
+  <div class="mobile-menu__bottom">
+    <a class="mobile-menu__call" href="{{root}}pages/book-a-call.html"><i class="fa-regular fa-calendar" aria-hidden="true"></i> Book a Call</a>
+    <a class="button button--primary" href="{{root}}pages/start-a-project.html">Start a Project <span aria-hidden="true">↗</span></a>
+  </div>
+</aside>
