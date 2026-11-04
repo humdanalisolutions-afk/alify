@@ -1,6 +1,6 @@
 /* ALIFY reusable footer — quiet surface, distinctive typography */
 .site-footer { position: relative; overflow: hidden; background: var(--color-charcoal); color: var(--color-white); isolation: isolate; }
-.site-footer__background { position: absolute; z-index: -1; inset: 0; opacity: .13; background: url("../images/Neon_Lines_11_1920.webp") center 48% / cover no-repeat; mask-image: linear-gradient(90deg, transparent 22%, #000 100%); -webkit-mask-image: linear-gradient(90deg, transparent 22%, #000 100%); pointer-events: none; }
+.site-footer__background { position: absolute; z-index: -1; inset: 0; opacity: .13; background: url("../../images/Neon_Lines_11_1920.webp") center 48% / cover no-repeat; mask-image: linear-gradient(90deg, transparent 22%, #000 100%); -webkit-mask-image: linear-gradient(90deg, transparent 22%, #000 100%); pointer-events: none; }
 .site-footer::before { content: ""; position: absolute; z-index: -1; inset: 0; background: radial-gradient(ellipse at 95% 110%, rgba(15,52,115,.28), transparent 55%); pointer-events: none; }
 .site-footer__top { display: grid; grid-template-columns: minmax(240px, 1.05fr) minmax(0, 1.85fr); column-gap: clamp(55px, 6vw, 115px); padding: 90px 0 84px; }
 .site-footer__identity { max-width: 360px; }
